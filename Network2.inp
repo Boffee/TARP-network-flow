@@ -1,0 +1,140 @@
+[TITLE]
+
+[OPTIONS]
+FLOW_UNITS           CFS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+START_DATE           04/10/2014
+START_TIME           00:00:00
+REPORT_START_DATE    04/10/2014
+REPORT_START_TIME    01:00:00
+END_DATE             04/10/2014
+END_TIME             06:00:00
+SWEEP_START          01/01
+SWEEP_END            12/31
+DRY_DAYS             0
+REPORT_STEP          00:01:00
+WET_STEP             00:05:00
+DRY_STEP             01:00:00
+ROUTING_STEP         0:00:30 
+ALLOW_PONDING        NO
+INERTIAL_DAMPING     PARTIAL
+VARIABLE_STEP        0.75
+LENGTHENING_STEP     0
+MIN_SURFAREA         0
+NORMAL_FLOW_LIMITED  BOTH
+SKIP_STEADY_STATE    NO
+FORCE_MAIN_EQUATION  H-W
+LINK_OFFSETS         DEPTH
+MIN_SLOPE            0
+
+[EVAPORATION]
+;;Type       Parameters
+;;---------- ----------
+CONSTANT     0.0
+DRY_ONLY     NO
+
+[JUNCTIONS]
+;;               Invert     Max.       Init.      Surcharge  Ponded    
+;;Name           Elev.      Depth      Depth      Depth      Area      
+;;-------------- ---------- ---------- ---------- ---------- ----------
+1                4          0          0          0          0         
+3                3          0          0          0          0         
+2                4          0          0          0          0         
+4                3          0          0          0          0         
+6                2          0          0          0          0         
+5                3          0          0          0          0         
+7                2          0          0          0          0         
+8                1          0          0          0          0         
+
+[OUTFALLS]
+;;               Invert     Outfall    Stage/Table      Tide
+;;Name           Elev.      Type       Time Series      Gate
+;;-------------- ---------- ---------- ---------------- ----
+9                0          FIXED      5                NO
+
+[CONDUITS]
+;;               Inlet            Outlet                      Manning    Inlet      Outlet     Init.      Max.      
+;;Name           Node             Node             Length     N          Offset     Offset     Flow       Flow      
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+1                1                3                100        0.01       0          0          0          0         
+2                2                3                100        0.01       0          0          0          0         
+3                3                4                100        0.01       0          0          0          0         
+4                4                6                100        0.01       0          0          0          0         
+5                5                6                100        0.01       0          0          0          0         
+6                6                8                100        0.01       0          0          0          0         
+7                8                9                100        0.01       0          0          0          0         
+8                4                7                100        0.01       0          0          0          0         
+9                7                8                100        0.01       0          0          0          0         
+
+[XSECTIONS]
+;;Link           Shape        Geom1            Geom2      Geom3      Geom4      Barrels   
+;;-------------- ------------ ---------------- ---------- ---------- ---------- ----------
+1                RECT_OPEN    10               10         0          0          1                    
+2                RECT_OPEN    10               10         0          0          1                    
+3                RECT_OPEN    10               10         0          0          1                    
+4                RECT_OPEN    10               10         0          0          1                    
+5                RECT_OPEN    10               10         0          0          1                    
+6                RECT_OPEN    10               10         0          0          1                    
+7                RECT_OPEN    10               10         0          0          1                    
+8                RECT_OPEN    10               10         0          0          1                    
+9                RECT_OPEN    10               10         0          0          1                    
+
+[LOSSES]
+;;Link           Inlet      Outlet     Average    Flap Gate 
+;;-------------- ---------- ---------- ---------- ----------
+
+[INFLOWS]
+;;                                                 Param    Units    Scale    Baseline Baseline
+;;Node           Parameter        Time Series      Type     Factor   Factor   Value    Pattern
+;;-------------- ---------------- ---------------- -------- -------- -------- -------- --------
+1                FLOW             ASDF             FLOW     1.0      1.0      100     
+2                FLOW             ""               FLOW     1.0      1.0      100     
+5                FLOW             ""               FLOW     1.0      1.0      100     
+
+[CURVES]
+;;Name           Type       X-Value    Y-Value   
+;;-------------- ---------- ---------- ----------
+INFINITE         Storage    0          100000000000
+INFINITE                    100        100000000000
+
+[TIMESERIES]
+;;Name           Date       Time       Value     
+;;-------------- ---------- ---------- ----------
+ASDF                        0          100       
+ASDF                        1          200       
+ASDF                        3          500       
+ASDF                        4          1000      
+ASDF                        5          500       
+ASDF                        10         100       
+
+[REPORT]
+INPUT      NO
+CONTROLS   NO
+SUBCATCHMENTS ALL
+NODES ALL
+LINKS ALL
+
+[TAGS]
+
+[MAP]
+DIMENSIONS 0.000 0.000 10000.000 10000.000
+Units      None
+
+[COORDINATES]
+;;Node           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+1                4056.911           9138.211          
+3                4121.951           7869.919          
+2                5130.081           8439.024          
+4                4040.650           6829.268          
+6                3406.504           5886.179          
+5                1845.528           6130.081          
+7                5097.561           5772.358          
+8                4170.732           4666.667          
+9                4203.252           3463.415          
+
+[VERTICES]
+;;Link           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+
